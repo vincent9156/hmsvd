@@ -1,4 +1,5 @@
 ﻿@{
+    Layout = null;
     ViewBag.Title = "Register";
 }
 
@@ -29,65 +30,88 @@
 
 </head>
 
-<body>
-    <div id="mainWrap">
-        <div id="loggit" style="width:359px">
-            <h3 style="width:293px"><i class="fa fa-lock"></i>Hospital Mangement System</h3>
-            @*<h3>Please <strong>Login</strong> or <strong>Register</strong></h3>*@
+<body style="background:url(../assest/img/bg.jpg) no-repeat center center fixed;">
+    <div id=" mainwrap">
+    <div id="loggit" style="width:359px">
+        <h3 style="width:293px"><i class="fa fa-lock"></i>Hospital Mangement System</h3>
+        @*<h3>Please <strong>Login</strong> or <strong>Register</strong></h3>*@
+        <div style="text-align:center;margin-bottom:4px">
+            @if (ViewData["_error_"] != null)
+            {
+                <div class="alert alert-danger alert-dismissable" role="alert">
+                    <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <span style="color:red">
+                        @ViewData["_error_"]
+                    </span>
+                </div>
+            }
+            else if(ViewData["error"] != null)
+                {
+                  <div class="alert alert-danger alert-dismissable" role="alert">
+                    <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <span style="color:red">
+                        @ViewData["error"]
+                    </span>
+                </div>
+                }
+        </div>
 
-            <form action="register" id="logForm" method="post" class="form-horizontal">
-                <div class="form-group">
-                    <div class="col-xs-12">
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="fa fa-envelope fa-fw"></i></span>
-                            <input type="text" name="Username" style="height:26px; width:250px" class="form-control input-lg" placeholder="Email" autocomplete="off" required>
-                        </div>
+        <form action="register" id="logForm" method="post" class="form-horizontal">
+            <div class="form-group">
+                <div class="col-xs-12">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-envelope fa-fw"></i></span>
+                        <input type="email" name="Username" style="height:26px; width:250px" class="form-control input-lg" placeholder="Email" autocomplete="off" required>
                     </div>
                 </div>
-                <div class="form-group">
-                    <div class="col-xs-12">
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
-                            <input type="password" name="Password" style="height:26px; width:250px" min="5" class="form-control input-lg" placeholder="Password" autocomplete="off" required>
-                        </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-12">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+                        <input type="password" name="Password" style="height:26px; width:250px" min="5" class="form-control input-lg" placeholder="Password" autocomplete="off" required>
                     </div>
                 </div>
-                <div class="form-group">
-                    <div class="col-xs-12">
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="fa fa-question fa-fw"></i></span>
-                            <input type="text" style="height:26px; width:250px" name="question" class="form-control input-lg" placeholder="Question" autocomplete="off" required>
-                        </div>
+            </div>
+            <div style="text-align:center;margin-bottom:4px">
+               
+            </div>
+            <div class="form-group">
+                <div class="col-xs-12">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-question fa-fw"></i></span>
+                        <input type="text" style="height:26px; width:250px" name="question" class="form-control input-lg" placeholder="Question" autocomplete="off" required>
                     </div>
                 </div>
-                <div class="form-group">
-                    <div class="col-xs-12">
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="fa fa-reply fa-fw"></i></span>
-                            <input type="text" name="answer" style="height:26px; width:250px" class="form-control input-lg" placeholder="Answer" autocomplete="off" required>
-                        </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-12">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-reply fa-fw"></i></span>
+                        <input type="text" name="answer" style="height:26px; width:250px" class="form-control input-lg" placeholder="Answer" autocomplete="off" required>
                     </div>
                 </div>
-                    <div class="form-group formSubmit">
-                        @*<div class="col-sm-7">
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox" checked autocomplete="off"> Keep me logged in
-                                </label>
-                            </div>
-                        </div>*@
-                        <div class="col-sm-5 submitWrap">
-                            <button type="submit" style="margin-right:-50px" class="btn btn-primary btn-lg">Register</button>
-                            
+            </div>
+            <div class="form-group formSubmit">
+                @*<div class="col-sm-7">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" checked autocomplete="off"> Keep me logged in
+                            </label>
                         </div>
-                    </div>
-                    <div class="form-group formNotice">
-                        <div class="col-xs-12">
-                            <p class="text-center">Already Register <span><a href="Index">LOGIN NOW</a></span></p>
-                        </div>
-                    </div>
-</form>
-            @*<form action="#" id="regForm" method="post" class="form-horizontal">
+                    </div>*@
+                <div class="col-sm-5 submitWrap">
+                    <button type="submit" style="margin-right:-50px" class="btn btn-primary btn-lg">Register</button>
+
+                </div>
+            </div>
+            <div class="form-group formNotice">
+                <div class="col-xs-12">
+                    <p class="text-center">Already Register <span><a href="Index">LOGIN NOW</a></span></p>
+                </div>
+            </div>
+        </form>
+        @*<form action="#" id="regForm" method="post" class="form-horizontal">
                 <div class="form-group">
                     <div class="col-xs-12">
                         <div class="input-group">
@@ -130,7 +154,7 @@
                     </div>
                 </div>
             </form>*@
-        </div>
+    </div>
 
     </div>
     <footer class="clearfix">
