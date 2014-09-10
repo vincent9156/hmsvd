@@ -1,40 +1,28 @@
 ﻿@{
-    ViewBag.Title = "Index";
+    Layout = null; 
+    ViewBag.Title = "Loggit - Login &amp; registration template";
 }
-
-
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
-    <meta name="description" content="A clean login and registration template based on Bootstrap framework">
-    <meta name="author" content="">
-    <link rel="shortcut icon" href="~/assest/icon/newicon.PNG" />
-
-
-
-    <title>Loggit - Login &amp; registration template</title>
-    <script src="~/assest/js/jquery.js"></script>
-    <!-- Bootstrap core CSS -->
-    <link href="~/assest/css/bootstrep.mini.css" rel="stylesheet" />
-
-
-    <!-- Custom styles for this template -->
-    <link href="~/assest/css/Custome.css" rel="stylesheet" />
-
-    <link href="~/assest/css/font_awesome.css" rel="stylesheet" />
-
-    <link media="screen" rel="stylesheet" href="~/assest/css/font.css" />
-
-</head>
-
-<body>
-    <div id="mainWrap">
-        <div id="loggit" style="height:303px; width:375px">
+<link href="~/assest/css/Custome.css" rel="stylesheet" />
+<link href="~/assest/css/font.css" rel="stylesheet" />
+<link href="~/assest/css/googlefont.css" rel="stylesheet" />
+<link href="~/assest/css/Contest.css" rel="stylesheet" />
+<link href="~/assest/css/Style.css" rel="stylesheet" />
+<link href="~/assest/css/bootstrap.css" rel="stylesheet" />
+<link href="~/assest/css/font_awesome.css" rel="stylesheet" />
+<body style="background:url(../assest/img/bg.jpg) no-repeat center center fixed;">
+        <div id="mainWrap">
+        <div id="loggit" style="width:375px">
             <h3><i class="fa fa-lock"></i> Hospital Mangement System</h3>
             <h3>Please <strong>Login</strong> or <strong>Register</strong></h3>
-
+           @if(ViewData["error"] != null)
+            {
+           <div class="alert alert-danger alert-dismissable" role="alert">
+                    <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                   @* <span style="color:red">*@
+                        @ViewData["error"]
+                  @*  </span>*@
+                </div>
+            }
             <form action="" id="logForm" method="post" class="form-horizontal">
                 <div class="form-group">
                     <div class="col-xs-12">
@@ -66,7 +54,12 @@
                 </div>
                 <div class="form-group formNotice">
                     <div class="col-xs-12">
-                        <p class="text-center">Don't have an account? <span><a href="Home/register"> Register now</a></span></p>
+                        <p class="text-center"><span><a href="~/Home/Forgotpassword">Forgot Password</a></span></p>
+                    </div>
+                </div>
+                <div class="form-group formNotice">
+                    <div class="col-xs-12">
+                        <p class="text-center">Don't have an account? <span><a href="~/Home/register"> Register now</a></span></p>
                     </div>
                 </div>
             </form>
@@ -120,24 +113,6 @@
         @*<p>Copyright &copy; 2014 Loggit - Login &amp; registration template. All Rights Reserved</p>*@
     </footer>
 
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    @*<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-
-        <script type="text/javascript">
-            $(document).ready(function () {
-
-                $('.formNotice span').click(function () {
-                    $("#logForm").toggle();
-                    $("#regForm").toggle();
-                });
-
-
-            });
-        </script>*@
-
 </body>
-</html>
+
+
